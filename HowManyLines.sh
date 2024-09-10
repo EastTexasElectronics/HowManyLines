@@ -231,22 +231,16 @@ analyze_code() {
         count_lines_by_extension "$extension" "$description"
     done
 
-    # Wait for all background jobs to finish
-    wait
-
     # Calculate final totals
     TOTAL_FILES=$(cat $TEMP_FILE_FILES)
     TOTAL_LINES=$(cat $TEMP_FILE_LINES)
     TOTAL_SIZE=$(cat $TEMP_FILE_SIZE)
-    END_TIME=$(date +%s%N)
-    ELAPSED_TIME=$({ time analyze_code_internal; } 2>&1 | grep real | awk '{print $2}')
 
     # Display the final results
     echo "\033[1;34m=====================================\033[0m"
     echo "\033[1;32mTotal Files Analyzed: $TOTAL_FILES\033[0m"
     echo "\033[1;32mTotal Lines of Code: $TOTAL_LINES\033[0m"
     echo "\033[1;32mTotal Disk Usage: $(convert_size $TOTAL_SIZE)\033[0m"
-    echo "\033[1;32mTotal Time Taken: $ELAPSED_TIME milliseconds\033[0m"
 
     # Display errors summary if any
     if [[ -s $ERROR_LOG ]]; then
