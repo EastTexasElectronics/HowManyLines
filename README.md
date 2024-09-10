@@ -3,11 +3,13 @@
 
 This script counts the total lines of code in a directory, breaking it down by file type, and provides a report of the results. It's optimized for performance with parallel processing and provides detailed statistics on disk usage and time taken.
 
+The script is written in Zsh, but it works on both Zsh and Bash. We recommend using Zsh if possible, but feel free to use Bash if that's your preference.
+
 ---
 
 ## How to Install
 
-### macOS and Linux
+### macOS and Linux (Zsh)
 
 1. Make sure you have Zsh installed:
 
@@ -48,16 +50,37 @@ This script counts the total lines of code in a directory, breaking it down by f
    ./HowManyLines.sh [OPTIONS]
    ```
 
+### Bash Users
+
+1. If you're using Bash, you can modify the script slightly to make it more compatible. Open the script (`HowManyLines.sh`) in a text editor and change the first line from:
+
+   ```bash
+   #!/bin/zsh
+   ```
+
+   to:
+
+   ```bash
+   #!/bin/bash
+   ```
+
+2. After making the change, follow the same installation steps as above, but run it with Bash:
+
+   ```bash
+   ./HowManyLines.sh [OPTIONS]
+   ```
+
 ---
 
 ## How to Setup an Alias
 
-To make the script easier to run, you can create a custom alias for it in your Zsh shell. You can name the alias anything you like, but we suggest `hml` or `howmanylines`.
+To make the script easier to run, you can create a custom alias for it in your Zsh or Bash shell. You can name the alias anything you like, but we suggest `hml` or `howmanylines`.
 
-1. Open your Zsh configuration file (`.zshrc`) in a text editor:
+1. Open your shell configuration file (`.zshrc` for Zsh or `.bashrc` for Bash) in a text editor:
 
    ```bash
-   nano ~/.zshrc
+   vim ~/.zshrc  # For Zsh
+   vim ~/.bashrc  # For Bash
    ```
 
 2. Add the following line to create an alias for the script:
@@ -66,10 +89,11 @@ To make the script easier to run, you can create a custom alias for it in your Z
    alias hml='/path/to/HowManyLines.sh'
    ```
 
-3. Save and exit the file, then reload your Zsh configuration:
+3. Save and exit the file, then reload your shell configuration:
 
    ```bash
-   source ~/.zshrc
+   source ~/.zshrc  # For Zsh
+   source ~/.bashrc  # For Bash
    ```
 
 Now, you can run the script by simply typing `hml` or `howmanylines` in your terminal.
@@ -125,10 +149,57 @@ This example excludes the `build` directory, includes hidden files, and uses 4 C
 
    ```bash
    extensions=(
-       "sh:Shell"
-       "py:Python"
-       "js:JavaScript"
-       ...
+        "sh:Shell"
+        "py:Python"
+        "js:JavaScript"
+        "ts:TypeScript"
+        "html:HTML"
+        "css:CSS"
+        "rb:Ruby"
+        "cpp:C++"
+        "c:C"
+        "java:Java"
+        "go:Go"
+        "php:PHP"
+        "cs:C#"
+        "swift:Swift"
+        "kt:Kotlin"
+        "rs:Rust"
+        "scala:Scala"
+        "sql:SQL"
+        "pl:Perl"
+        "r:R"
+        "hs:Haskell"
+        "erl:Erlang"
+        "ex:Elixir"
+        "dart:Dart"
+        "xml:XML"
+        "json:JSON"
+        "yaml:YAML"
+        "md:Markdown"
+        "txt:Text"
+        "doc:Word"
+        "docx:Word"
+        "xls:Excel"
+        "xlsx:Excel"
+        "ppt:PPT"
+        "pptx:PPTX"
+        "pdf:PDF"
+        "bat:Batch"
+        "ini:INI"
+        "conf:Config"
+        "toml:TOML"
+        "yml:YAML"
+        "vue:Vue.js"
+        "jsx:JSX"
+        "tsx:TSX"
+        "tf:Terraform"
+        "dockerfile:Docker"
+        "gemspec:GemSpec"
+        "scss:SCSS"
+        "sass:Sass"
+        "less:LESS"
+        "erb:ERB"
    )
    ```
 
